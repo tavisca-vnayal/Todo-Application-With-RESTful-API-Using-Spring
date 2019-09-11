@@ -10,7 +10,18 @@ import java.util.ArrayList;
 @Component
 public class ToDoAppServices {
     private static ArrayList<ToDo> todoItemsList = new ArrayList<>();
-    private SecureRandom random = new SecureRandom();
+    private static SecureRandom random = new SecureRandom();
+
+    static {
+        String randomId = new BigInteger(130, random).toString(32);
+        ToDo newTodo1 = new ToDo(randomId,"Go to Market");
+
+        randomId = new BigInteger(130, random).toString(32);
+        ToDo newTodo2 = new ToDo(randomId,"Study SpringBoot");
+
+        todoItemsList.add(newTodo1);
+        todoItemsList.add(newTodo2);
+    }
 
     public ToDo addTodoItem(String todoItemContent) {
         String randomId = new BigInteger(130, random).toString(32);

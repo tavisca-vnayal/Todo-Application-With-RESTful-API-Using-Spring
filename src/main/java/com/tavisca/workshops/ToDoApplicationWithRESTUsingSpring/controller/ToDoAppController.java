@@ -4,13 +4,11 @@ package com.tavisca.workshops.ToDoApplicationWithRESTUsingSpring.controller;
 import com.tavisca.workshops.ToDoApplicationWithRESTUsingSpring.model.ToDo;
 import com.tavisca.workshops.ToDoApplicationWithRESTUsingSpring.service.ToDoAppServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.ArrayList;
 
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController
 public class ToDoAppController {
     @Autowired
@@ -32,18 +30,11 @@ public class ToDoAppController {
     }
 
     @PostMapping("/todolist")
-    public ResponseEntity<Void> addTodoItemIntoTodoList(
+    public ToDo addTodoItemIntoTodoList(
             @RequestBody String todoItemContent) {
 
         ToDo todo = toDoAppServices.addTodoItem(todoItemContent);
-
-        if (todo == null)
-            return ResponseEntity.noContent().build();
-
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
-                "/{id}").buildAndExpand(todo.getTodoItemID()).toUri();
-
-        return ResponseEntity.created(location).build();
+        return todo;
     }
 
     @DeleteMapping("/todolist")

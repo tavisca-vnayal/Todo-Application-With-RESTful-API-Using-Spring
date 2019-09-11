@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="item1">
+            <h1>ToDo List Application</h1>
+        </div>
+
+        <div class="item2">
+            <button class="tablinks" onclick="openTab(event, 'home')">Home</button>
+            <button class="tablinks" onclick="openTab(event, 'todo')">ToDo List</button>
+            <button class="tablinks" onclick="openTab(event, 'users')">Users</button>
+            <button class="tablinks" onclick="openTab(event, 'dept')">Department</button>
+            <button class="tablinks" onclick="openTab(event, 'about')">About</button>
+            <button class="tablinks" onclick="openTab(event, 'contact')">Contact</button>
+        </div>
+
+        <div class="item3">
+            <div id="todo" class="tabcontent">
+                <div class="card">
+                    <div class="todo-header">
+                        <h1>ToDo's List</h1>
+                        <div>
+                            <input id="input-text" class="input" type="text" placeholder="Enter the task ..." onkeypress="onEnter(event)">
+                            <button onclick="addTask()" class="addBtn">+</button>
+                        </div>
+                    </div> 
+                    <ul id="todos" class="todos"></ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="item4">
+            Copyright Varun Nayal
+            <br>
+            Online Presence github@tavisca-vnayal
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
